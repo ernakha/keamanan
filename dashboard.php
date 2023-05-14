@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +9,7 @@
 <body>
     <h1>Welcome</h1>
     <p>This is your dashboard.</p>
-    <a href="#">Logout</a>
+    <a href="logout.php">Logout</a>
 </body>
 </html>
 
