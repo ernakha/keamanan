@@ -4,7 +4,7 @@ include('config.php');
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CRUD Produk dengan gambar - Gilacoding</title>
+  <title>CRUD Produk dengan gambar </title>
   <title>CRUD Gambar dengan PHP 7</title>
   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
   <script type="text/javascript" src="bootstrap/js/jquery.js"></script>
@@ -12,7 +12,7 @@ include('config.php');
 </head>
 <body>
   <center>
-    <h1>CRUD Gambar dengan PHP 7 Pemulungkode</h1>
+    <h1>CRUD Gambar</h1>
   </center>
   <center><a href="tambah_produk.php"><button type="button" class="btn btn-info"> Tambah Produk</button></a>
   <a href="logout.php"><button type="button" class="btn btn-info"> Logout</button></a>
