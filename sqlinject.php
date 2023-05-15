@@ -8,20 +8,15 @@ if (isset($_POST['submit'])) {
     $password = $_POST['password'];
 
     // Membuat koneksi ke database
-    $host = 'localhost';
-    $user = 'root';
-    $pass = '';
-    $db   = 'database';
-
-    $conn = mysqli_connect($host, $user, $pass, $db);
+    include('config.php');
 
     // Mencegah SQL injection
-    $username = mysqli_real_escape_string($conn, $username);
-    $password = mysqli_real_escape_string($conn, $password);
+    $username = mysqli_real_escape_string($koneksi, $username);
+    $password = mysqli_real_escape_string($koneksi, $password);
 
     // Melakukan query untuk memeriksa apakah username dan password yang diinputkan sesuai
     $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-    $result = mysqli_query($conn, $query);
+    $result = mysqli_query($koneksi, $query);
 
     // Jika query berhasil dieksekusi
     if ($result && mysqli_num_rows($result) > 0) {
@@ -33,7 +28,7 @@ if (isset($_POST['submit'])) {
         $error_message = "Username atau password salah";
     }
 
-    mysqli_close($conn);
+    mysqli_close($koneksi);
 }
 
 ?>

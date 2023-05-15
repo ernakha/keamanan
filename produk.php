@@ -15,6 +15,7 @@ include('config.php');
     <h1>CRUD Gambar dengan PHP 7 Pemulungkode</h1>
   </center>
   <center><a href="tambah_produk.php"><button type="button" class="btn btn-info"> Tambah Produk</button></a>
+  <a href="logout.php"><button type="button" class="btn btn-info"> Logout</button></a>
   </center>
   <br />
   <table class="table table-bordered table-striped">
@@ -64,10 +65,5 @@ include('config.php');
   </table>
   <br>
   <hr>
-  <Center>
-    <footer>
-      Pemulungkode
-    </footer>
-  </Center>
 </body>
 </html>
