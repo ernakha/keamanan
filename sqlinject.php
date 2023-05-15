@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
     if ($result && mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         $_SESSION['username'] = $row['username'];
-        header("Location: dashboard.php");
+        header("Location: produk.php");
         exit;
     } else {
         $error_message = "Username atau password salah";

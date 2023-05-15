@@ -2,36 +2,37 @@
 session_start();
 include "koneksi.php";
 
-if(isset($_POST['submit'])){
-  $title = $_POST['title'];
-  $description = $_POST['description'];
+if (isset($_POST['submit'])) {
+    // Escape input values to prevent SQL injection
+    $title = mysqli_real_escape_string($koneksi, $_POST['title']);
+    $description = mysqli_real_escape_string($koneksi, $_POST['description']);
 
-  // File upload handling
-  $file_name = $_FILES['file']['name'];
-  $file_size = $_FILES['file']['size'];
-  $file_tmp = $_FILES['file']['tmp_name'];
-  $file_type = $_FILES['file']['type'];
-  $file_ext = strtolower(end(explode('.', $_FILES['file']['name'])));
+    // File upload handling
+    $file_name = $_FILES['file']['name'];
+    $file_size = $_FILES['file']['size'];
+    $file_tmp = $_FILES['file']['tmp_name'];
+    $file_type = $_FILES['file']['type'];
+    $file_ext = strtolower(end(explode('.', $_FILES['file']['name'])));
 
-  $extensions = array("jpeg","jpg","png");
-  if(in_array($file_ext,$extensions) === false){
-    $errors[] = "Extension not allowed, please choose a JPEG or PNG file.";
-  }
+    $extensions = array("jpeg", "jpg", "png");
+    if (in_array($file_ext, $extensions) === false) {
+        $errors[] = "Extension not allowed, please choose a JPEG or PNG file.";
+    }
 
-  if($file_size > 2097152) {
-    $errors[] = 'File size must be less than 2 MB';
-  }
+    if ($file_size > 2097152) {
+        $errors[] = 'File size must be less than 2 MB';
+    }
 
-  // If no errors, insert data into database
-  if(empty($errors) == true) {
-    move_uploaded_file($file_tmp,"images/".$file_name);
-    $query = "INSERT INTO articles (title, description, image) VALUES ('$title', '$description', '$file_name')";
-    mysqli_query($koneksi, $query);
-    header('location:index.php');
-    exit();
-  } else {
-    print_r($errors);
-  }
+    // If no errors, insert data into database
+    if (empty($errors) == true) {
+        move_uploaded_file($file_tmp, "images/" . $file_name);
+        $query = "INSERT INTO articles (title, description, image) VALUES ('$title', '$description', '$file_name')";
+        mysqli_query($koneksi, $query);
+        header('location:index.php');
+        exit();
+    } else {
+        print_r($errors);
+    }
 }
 ?>
 

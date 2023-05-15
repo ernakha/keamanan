@@ -101,7 +101,7 @@
 			// Login berhasil
 			session_start();
 			$_SESSION['username'] = $username;
-			header('Location: dashboard.php');
+			header('Location: produk.php');
 			exit;
 		} else {
 			// Login gagal
