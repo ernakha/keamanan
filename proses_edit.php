@@ -28,7 +28,7 @@ if ($gambar_produk != "") {
     } else {
       //tampil alert dan akan redirect ke halaman produk.php
       //silahkan ganti produk.php sesuai halaman yang akan dituju
-      echo "<script>alert('Data berhasil diubah.');window.location='produk.php';</script>";
+      echo "<script>alert('Data berhasil diubah.');window.location='dashboard.php';</script>";
     }
   } else {
     //jika file ekstensi tidak jpg dan png maka alert ini yang tampil
@@ -46,6 +46,6 @@ if ($gambar_produk != "") {
   } else {
     //tampil alert dan akan redirect ke halaman produk.php
     //silahkan ganti produk.php sesuai halaman yang akan dituju
-    echo "<script>alert('Data berhasil diubah.');window.location='produk.php';</script>";
+    echo "<script>alert('Data berhasil diubah.');window.location='dashboard.php';</script>";
   }
 }
